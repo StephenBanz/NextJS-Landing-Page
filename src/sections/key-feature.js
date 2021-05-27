@@ -7,6 +7,9 @@ import Performance from 'assets/key-feature/performance.svg';
 import Partnership from 'assets/key-feature/partnership.svg';
 import Subscription from 'assets/key-feature/subscription.svg';
 import Support from 'assets/key-feature/support.svg';
+import Feature from './feature';
+import FeatureCard from 'components/feature-card';
+import { useMotionTemplate } from 'framer-motion';
 
 const data = [
   {
@@ -45,7 +48,27 @@ const data = [
 
 export default function KeyFeature() {
   return (
-   <h1>Key Feature</h1>
+   <section id="feature" sx={{variant: 'section.keyFeature'}}>
+     <Container>
+       <SectionHeader
+        slogan="ehats the function"
+        title="meet the features"
+       />
+       <Grid
+        sx={styles.grid}
+       >
+         {data.map((item, i) => (
+           <FeatureCardColumn
+            key={item.id}
+            src={item.imgSrc}
+            alt={item.altText}
+            title={item.title}
+            text={item.text}
+           />
+         ))}
+       </Grid>
+     </Container>
+   </section>
   );
 }
 
